@@ -1,0 +1,54 @@
+.navLink {
+  color: var(--secondaryColor);
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: var(--transition1);
+  border-bottom: 1px solid var(--extraLightSecondaryColor);
+}
+.navLink:hover {
+  background: var(--hoverSecondaryColor);
+}
+.navLink:nth-child(4) {
+  border-bottom: unset;
+}
+.navLink.activeLink,
+.activeLink,
+.navLink:hover {
+  color: var(--primaryColor);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .logo img {
+    width: 7rem;
+  }
+  .navLink {
+    width: unset;
+    text-align: unset;
+    padding: unset;
+    transform-origin: unset;
+    transform: unset;
+    border-bottom: unset;
+  }
+  .navLink:hover {
+    background: unset;
+  }
+  nav {
+    position: unset;
+    width: unset;
+    gap: 3rem;
+    pointer-events: unset;
+
+    flex-direction: unset;
+  }
+  .header_btn {
+    display: block;
+  }
+  .menu_btn {
+    display: none;
+  }
+}
