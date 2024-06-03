@@ -75,6 +75,7 @@ const Header = () => {
   return (
     <header
       style={{
+        backgroundColor: "var(--bodyColor)",
         position: "sticky",
         top: 0,
         right: 0,
