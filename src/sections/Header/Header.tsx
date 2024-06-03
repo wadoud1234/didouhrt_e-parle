@@ -1,13 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import "./Header.module.css";
+import "./Header.css";
 import Logo from "../../components/Logo/Logo";
 import NavbarLinks from "./NavbarLinks";
 import HeaderAuthButtons from "./HeaderAuthButtons";
-// import MobileNavbar from "./MobileNavbar";
-import MobileNavbar from "./MobileNavbar";
 
-const Header = () => {
+export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const navRef = useRef<HTMLElement>(null);
@@ -21,7 +19,9 @@ const Header = () => {
       setIsNavOpen(false);
     }
   };
-
+  function toggleNav() {
+    setIsNavOpen(!isNavOpen);
+  }
   // const getNavLinkClass = (basePath: string) => {
   //   return location.pathname === basePath ||
   //     location.pathname.startsWith(`${basePath}/`)
@@ -72,17 +72,6 @@ const Header = () => {
 
   return (
     <header
-      style={{
-        backgroundColor: "var(--bodyColor)",
-        position: "sticky",
-        top: 0,
-        right: 0,
-        left: 0,
-        zIndex: 100,
-        paddingTop: "4px",
-        paddingBottom: "4px",
-        boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
-      }}
       className={` 
         ${isNavOpen ? "activeNav" : ""} 
         ${isFixed ? "hideHeader" : ""} 
@@ -91,34 +80,14 @@ const Header = () => {
       <div className={`flex_between header_container container `}>
         <Logo />
         <nav
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "24px",
-          }}
           ref={navRef}
           className={`flex_item_center ${isNavOpen ? "activeNav" : ""}`}
         >
-          {/* <Link to="/" className={getNavLinkClass("/")}>
-            Accueil
-          </Link> */}
           <NavbarLinks />
-          {/* <NavbarLink link="/" name="Accueil" /> */}
-          {/* <Link to="/cours" className={getNavLinkClass("/cours")}> */}
-          {/* Cours */}
-          {/* </Link> */}
-          {/* <Link to="/à_propos" className={getNavLinkClass("/%C3%A0%20propos")}> */}
-          {/* À Propos */}
-          {/* </Link> */}
-          {/* <Link to="/contact" className={getNavLinkClass("/contact")}> */}
-          {/* Contact */}
-          {/* </Link> */}
         </nav>
         <div className="flex_item_center gap1">
           <HeaderAuthButtons />
-          {/* <button
+          <button
             aria-label="menu toggle button"
             className={`menu_btn ${isNavOpen ? "activeNav" : ""}`}
             onClick={toggleNav}
@@ -126,12 +95,10 @@ const Header = () => {
             <span></span>
             <span></span>
             <span></span>
-          </button> */}
-          <MobileNavbar />
+          </button>
+          {/* <MobileNavbar /> */}
         </div>
       </div>
     </header>
   );
-};
-
-export default Header;
+}
