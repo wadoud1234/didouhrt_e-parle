@@ -50,10 +50,27 @@ export default function MobileNavbar() {
 
   useEffect(() => {
     document.addEventListener("mousedown", (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e?.target as Node)) {
+      const target = e.target as HTMLElement;
+      if (navRef.current && !navRef.current.contains(target)) {
         close();
       }
+      if (
+        navRef.current &&
+        isOpen &&
+        navRef.current.contains(target) &&
+        target.classList.contains("navLink")
+      ) {
+        close();
+        target.click();
+      }
     });
+    return () => {
+      document.removeEventListener("mousedown", (e: MouseEvent) => {
+        if (navRef.current && !navRef.current.contains(e?.target as Node)) {
+          close();
+        }
+      });
+    };
   }, []);
   return (
     <div>
