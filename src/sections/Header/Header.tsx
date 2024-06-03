@@ -3,8 +3,6 @@ import { useLocation } from "react-router-dom";
 import "./Header.module.css";
 import Logo from "../../components/Logo/Logo";
 import NavbarLinks from "./NavbarLinks";
-import { SignedIn, UserButton } from "@clerk/clerk-react";
-import LoginButton from "../../components/Auth/Login/LoginButton";
 import HeaderAuthButtons from "./HeaderAuthButtons";
 
 const Header = () => {
