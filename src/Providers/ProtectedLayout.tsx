@@ -10,7 +10,9 @@ export default function ProtectedLayout() {
 
   useEffect(() => {
     if (isLoaded && !userId) {
-      navigate("/sign-in");
+      navigate("/auth/login", {
+        replace: true,
+      });
     }
   }, [isLoaded]);
 

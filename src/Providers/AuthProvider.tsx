@@ -15,6 +15,9 @@ export default function AuthProvider() {
       routerPush={(to) => navigate(to)}
       signUpUrl="/auth/register"
       signInUrl="/auth/login"
+      signInForceRedirectUrl={"/auth/login"}
+      signInFallbackRedirectUrl={"/"}
+      afterSignOutUrl="/"
       routerReplace={(to) => navigate(to, { replace: true })}
       publishableKey={PUBLISHABLE_KEY}
     >
