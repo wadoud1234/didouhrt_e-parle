@@ -32,7 +32,7 @@
 //   );
 // }
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavbarLinks from "./NavbarLinks";
 import classes from "./MobileNavbar.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -40,7 +40,7 @@ import { IoMdClose } from "react-icons/io";
 
 export default function MobileNavbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navRef = useRef<HTMLDivElement>(null);
   function close() {
     setIsOpen(false);
   }
@@ -48,6 +48,13 @@ export default function MobileNavbar() {
     setIsOpen(true);
   }
 
+  useEffect(() => {
+    document.addEventListener("mousedown", (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e?.target as Node)) {
+        close();
+      }
+    });
+  }, []);
   return (
     <div>
       <button
@@ -89,6 +96,8 @@ export default function MobileNavbar() {
             <IoMdClose size="20px" />
           </button>
           <div
+            ref={navRef}
+            id="mobile-navbar"
             style={{
               width: "100%",
               height: "100vh",
