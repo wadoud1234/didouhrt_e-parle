@@ -139,3 +139,10 @@ nav.activeNav {
     display: none;
   }
 }
+
+@media screen and (max-width: 767px) {
+  header nav {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}

@@ -4,16 +4,14 @@ import "./Header.module.css";
 import Logo from "../../components/Logo/Logo";
 import NavbarLinks from "./NavbarLinks";
 import HeaderAuthButtons from "./HeaderAuthButtons";
+// import MobileNavbar from "./MobileNavbar";
+import MobileNavbar from "./MobileNavbar";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const location = useLocation();
-
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
 
   const closeNavOnOutsideClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
@@ -101,7 +99,7 @@ const Header = () => {
             gap: "24px",
           }}
           ref={navRef}
-          className={`flex_item_center  ${isNavOpen ? "activeNav" : ""}`}
+          className={`flex_item_center ${isNavOpen ? "activeNav" : ""}`}
         >
           {/* <Link to="/" className={getNavLinkClass("/")}>
             Accueil
@@ -120,7 +118,7 @@ const Header = () => {
         </nav>
         <div className="flex_item_center gap1">
           <HeaderAuthButtons />
-          <button
+          {/* <button
             aria-label="menu toggle button"
             className={`menu_btn ${isNavOpen ? "activeNav" : ""}`}
             onClick={toggleNav}
@@ -128,7 +126,8 @@ const Header = () => {
             <span></span>
             <span></span>
             <span></span>
-          </button>
+          </button> */}
+          <MobileNavbar />
         </div>
       </div>
     </header>
