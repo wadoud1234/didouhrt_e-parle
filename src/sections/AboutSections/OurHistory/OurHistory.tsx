@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./OurHistory.css";
+import LoginButton from "../../../components/Auth/Login/LoginButton";
 
 const OurHistory = () => {
   return (
@@ -48,9 +49,7 @@ const OurHistory = () => {
             <Link to="/cours" className="primary_btn">
               <span>voir cours</span>
             </Link>
-            <Link to="/auth/register" className="secondary_btn">
-              <span>se connecter</span>
-            </Link>
+            <LoginButton />
           </div>
         </div>
       </div>

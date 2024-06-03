@@ -8,10 +8,10 @@ const Footer = () => {
   // const location = useLocation();
 
   // const getNavLinkClass = (basePath: string) => {
-    // return location.pathname === basePath ||
-      // location.pathname.startsWith(`${basePath}/`)
-      // ? "navLink activeLink"
-      // : "navLink";
+  // return location.pathname === basePath ||
+  // location.pathname.startsWith(`${basePath}/`)
+  // ? "navLink activeLink"
+  // : "navLink";
   // };
 
   return (

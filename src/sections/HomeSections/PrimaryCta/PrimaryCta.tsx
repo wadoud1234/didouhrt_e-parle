@@ -3,6 +3,7 @@ import { IoMdPlayCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import VideoPopUp from "./VideoPopUp";
 import "./PrimaryCta.css";
+import LoginButton from "../../../components/Auth/Login/LoginButton";
 
 const PrimaryCta = () => {
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
@@ -51,9 +52,7 @@ const PrimaryCta = () => {
                 <span>voir cours</span>
               </Link>
             </button>
-            <Link to="/auth/login" aria-label="login link" className="secondary_btn">
-              <span>Se Connecter</span>
-            </Link>
+            <LoginButton />
           </div>
         </div>
         <div className="border_shadow primaryCta_video">

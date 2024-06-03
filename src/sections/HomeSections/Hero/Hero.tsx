@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Hero.css";
+import LoginButton from "../../../components/Auth/Login/LoginButton";
 
 const Hero = () => {
   return (
@@ -18,9 +19,7 @@ const Hero = () => {
             <Link to="/cours" className="primary_btn">
               <span>voir cours</span>
             </Link>
-            <Link to="/auth/login" className="secondary_btn ">
-              <span>Se Connecter</span>
-            </Link>
+            <LoginButton />
           </div>
         </div>
         <div className="flex1 hero_image_container">

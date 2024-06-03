@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./Header.module.css";
 import Logo from "../../components/Logo/Logo";
 import NavbarLinks from "./NavbarLinks";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { SignedIn, UserButton } from "@clerk/clerk-react";
+import LoginButton from "../../components/Auth/Login/LoginButton";
+import HeaderAuthButtons from "./HeaderAuthButtons";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -119,25 +121,7 @@ const Header = () => {
           {/* </Link> */}
         </nav>
         <div className="flex_item_center gap1">
-          <SignedOut>
-            <button
-              className="secondary_btn header_btn"
-              aria-label="login button"
-            >
-              <Link
-                to="/auth/login"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <span>Se Connecter</span>
-              </Link>
-            </button>
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <HeaderAuthButtons />
           <button
             aria-label="menu toggle button"
             className={`menu_btn ${isNavOpen ? "activeNav" : ""}`}

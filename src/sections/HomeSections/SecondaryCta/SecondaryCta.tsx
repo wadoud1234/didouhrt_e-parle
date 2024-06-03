@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./SecondaryCta.css";
+import LoginButton from "../../../components/Auth/Login/LoginButton";
 
 const SecondaryCta = () => {
   return (
@@ -19,9 +20,7 @@ const SecondaryCta = () => {
             <Link to="/auth/register" className="primary_btn">
               <span>inscriver-vous</span>
             </Link>
-            <Link to="/auth/login" className="secondary_btn">
-              <span>Se Connecter</span>
-            </Link>
+            <LoginButton />
           </div>
         </div>
         <div className="border_shadow secondaryCta_img_box">
