@@ -4,17 +4,11 @@ import { Link } from "react-router-dom";
 export default function LoginButton() {
   return (
     <SignedOut>
-      <button className="secondary_btn header_btn" aria-label="login button">
-        <Link
-          to="/auth/login"
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-        >
+      <Link to="/auth/login">
+        <button className="secondary_btn header_btn" aria-label="login button">
           <span>Se Connecter</span>
-        </Link>
-      </button>
+        </button>
+      </Link>
     </SignedOut>
   );
 }

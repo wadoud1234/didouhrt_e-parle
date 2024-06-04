@@ -1,24 +1,17 @@
-import { SignedIn, UserButton, useUser } from "@clerk/clerk-react";
+import { SignedIn, UserButton } from "@clerk/clerk-react";
 import LoginButton from "../../components/Auth/Login/LoginButton";
-
+import "./HeaderAuthButtons.css";
 export default function HeaderAuthButtons() {
-  const { isLoaded } = useUser();
+  // const { isLoaded } = useUser();
   return (
     <>
       <LoginButton />
-      {!isLoaded && (
-        <div
-          style={{
-            width: "30px",
-            height: "30px",
-            borderRadius: "50%",
-            backgroundColor: "gray",
-          }}
-        />
-      )}
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
+
+      <div className={"loggedIn-btn"}>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
     </>
   );
 }

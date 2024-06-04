@@ -4,7 +4,6 @@ import PreLoader from "./components/PreLoader/PreLoader";
 import Home from "./pages/Home";
 import ProtectedLayout from "./Providers/ProtectedLayout";
 import RootLayout from "./Providers/RootLayout";
-import AuthProvider from "./Providers/AuthProvider";
 import SSO_Callback_Page from "./pages/Auth/SSO_Callback";
 import Redirect_If_Authentificated_Provider from "./Providers/Redirect_If_Authentificated_Provider";
 import NotFound from "./components/Auth/NotFound/NotFound";
@@ -25,29 +24,27 @@ export default function Router() {
     <BrowserRouter>
       <Suspense fallback={<PreLoader />}>
         <Routes>
-          <Route element={<AuthProvider />}>
-            <Route path="/" element={<RootLayout />}>
-              <Route index element={<Home />} />
-              <Route path="/cours" element={<Courses />} />
-              <Route path="/à_propos" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/cours/:courseId" element={<SingleCoursePage />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-            <Route element={<ProtectedLayout />}>
-              <Route
-                path="/cours/:courseId/videos"
-                element={<SingleCourseVideo />}
-              />
-            </Route>
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/cours" element={<Courses />} />
+            <Route path="/à_propos" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cours/:courseId" element={<SingleCoursePage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route element={<ProtectedLayout />}>
             <Route
-              path="/auth"
-              element={<Redirect_If_Authentificated_Provider />}
-            >
-              <Route path="/auth/login" element={<Login />} />
-              <Route path="/auth/register" element={<SignUp />} />
-              <Route path="/auth/sso" element={<SSO_Callback_Page />} />
-            </Route>
+              path="/cours/:courseId/videos"
+              element={<SingleCourseVideo />}
+            />
+          </Route>
+          <Route
+            path="/auth"
+            element={<Redirect_If_Authentificated_Provider />}
+          >
+            <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/register" element={<SignUp />} />
+            <Route path="/auth/sso" element={<SSO_Callback_Page />} />
           </Route>
         </Routes>
       </Suspense>
